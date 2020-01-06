@@ -1,8 +1,6 @@
 # Base docker image
-FROM debian:jessie
-MAINTAINER Christophe Boucharlat <christophe.boucharlat@gmail.com>
+FROM ubuntu:bionic
 
-# Slack Version 2.1.0
 
 RUN apt-get update && apt-get install -y \
     apt-utils \
@@ -30,9 +28,9 @@ RUN apt-get update && apt-get install -y \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
-RUN wget https://downloads.slack-edge.com/linux_releases/slack-desktop-2.1.0-amd64.deb -O /tmp/slack-desktop-2.1.0-amd64.deb && \
+RUN wget https://downloads.slack-edge.com/linux_releases/slack-desktop--amd64.deb -O /tmp/slack-desktop--amd64.deb && \
     cd /tmp/ && \
-    dpkg -i slack-desktop-2.1.0-amd64.deb && \
+    dpkg -i slack-desktop--amd64.deb && \
     rm -rf /tmp/slack-desktop*.deb
 
 ENV QT_XKB_CONFIG_ROOT=/usr/share/X11/xkb
